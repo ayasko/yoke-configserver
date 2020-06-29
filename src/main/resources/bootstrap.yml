@@ -1,2 +1,30 @@
+spring:
+  application:
+    name: yoke-configserver
+  
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:ayasko/yoke-config.git
+          repos:
+            yoke-event:
+              pattern: yoke-event*
+              uri: git@github.com:ayasko/yoke-event-config.git
+            yoke-notify:
+              pattern: yoke-notify*
+              uri: git@github.com:ayasko/yoke-notify-config.git
+            attender-service:
+              pattern: attender-service*
+              uri: git@github.com:ayasko/yoke-attender-config.git
+
+server:
+  port: 8581
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8580/eureka
+
 encrypt:
   key: foo
